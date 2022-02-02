@@ -22,10 +22,8 @@ spec:
         value: #@ data.values.gitea.adminPassword
       - name: HARBOR_PASSWORD
         value: #@ data.values.harbor.adminPassword
-      - name: TAP_GUI_FQDN
-        value: #@ data.values.ingress.tapGUIFQDN
-      - name: APPS_DOMAIN
-        value: #@ data.values.ingress.appsDomain
+      - name: BASE_DOMAIN
+        value: #@ data.values.ingress.baseDomain
     namespaces:
       budget: custom
     applications:
