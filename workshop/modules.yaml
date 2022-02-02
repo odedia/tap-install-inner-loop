@@ -1,0 +1,34 @@
+modules:
+    workshop-overview:
+        name: Workshop Overview
+        exit_sign: Getting Started
+    exercises/01-App-Accelerator:
+        name: Getting Started
+        exit_sign: Inner Loop
+    exercises/02-Inner-Loop-Workload:
+        name: Inner Loop Development
+        exit_sign: Outer Loop
+    exercises/03-Outer-Loop-Workload:
+        name: Outer Loop Development
+        exit_sign: Supply Chain
+    exercises/04-Supply-Chain:
+        name: Supply Chain
+        exit_sign: Deployment
+    exercises/05-Deployment:
+        name: Deployment
+        exit_sign: GitOps Iteration
+    exercises/06-Gitops-Iteration:
+        name: GitOps Iteration
+        exit_sign: Image Inspection
+    exercises/07-Looking-Into-Container-Image:
+        name: Image Inspection
+        exit_sign: Vulnerability Scanning
+    exercises/08-Scanning-Results:
+        name: Vulnerability Scanning
+        exit_sign: What Was Created
+    exercises/09-Backend-TAP-Resources:
+        name: What Was Created
+        exit_sign: Conclusion
+    workshop-summary:
+        name: Workshop Summary
+        exit_sign: Finish Workshop

@@ -1,0 +1,19 @@
+#@data/values
+---
+ingress:
+  domain: <INGRESS DOMAIN>
+  contour_tls_namespace: <NAMESPACE WHERE SECRET EXISTS>
+  contour_tls_secret: <SECRET NAME>
+harbor:
+  adminPassword: Harbor12345
+  diskSize: 50Gi
+gitea:
+  adminPassword: <PASSWORD>
+registry:
+  dockerhub: docker.io
+git:
+  account: vrabbi
+  branch: main
+  gitHubToken: <GITHUB TOKEN>
+  tls: <SECRET NAME>
+  tlsns: <NAMESPACE WHERE SECRET EXISTS>

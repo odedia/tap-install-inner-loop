@@ -1,0 +1,19 @@
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: TrainingPortal
+metadata:
+  name: demo-portal
+spec:
+  portal:
+    ingress:
+      hostname: tap-demos
+    registration:
+      type: anonymous
+    reserved: 0
+    sessions:
+      maximum: 10
+    updates:
+      workshop: true
+  workshops:
+  - expires: 60m
+    name: tap-overview
+    orphaned: 20m
