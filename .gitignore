@@ -1,0 +1,12 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+
+.DS_Store
+kubectl-scp
+tanzu-vscode-extension.vsix
