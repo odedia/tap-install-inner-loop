@@ -7,27 +7,27 @@ The workflow here is that Cody downloads the accelerator template to his local m
 For this demo, we'll use the Tanzu command line interface instead of the Web UI to download the java-web-app application accelerator. The Tanzu CLI is your one-stop shop for interacting with the Tanzu Application Platform.
 
 ```execute
-tanzu accelerator generate eks-demo-app --server-url https://accelerator.{{ ENV_BASE_DOMAIN }} --options='{"gitUrl": "'"$GITREPO"'","gitBranch":"main","ociCodeRepo":"'"$CODE_OCI_TARGET"'","advSettings":true,"devMode":true,"kubeContext":"eduk8s","securityConfig":"both","artifactId":"java-web-app"}'
+tanzu accelerator generate spring-sensors --server-url https://accelerator.{{ ENV_BASE_DOMAIN }} --options='{"gitUrl": "'"$GITREPO"'","gitBranch":"main","ociCodeRepo":"'"$CODE_OCI_TARGET"'","advSettings":true,"devMode":true,"kubeContext":"eduk8s","securityConfig":"both","artifactId":"spring-sensors-rabbit"}'
 ```
 
 Unzip the repo into your local file system:
 
 ```execute
-unzip -o eks-demo-app.zip && shopt -s dotglob && mv eks-demo-app/* java-web-app/
+unzip -o spring-sensors.zip && shopt -s dotglob && mv spring-sensors/* java-web-app/
 ```
 
 Now lets take a look at the code in our VSCode editor:
   
 Lets see the only kubernetes YAML that will be needed for this app which itself was fully built and updated with the required values by app accelerator:
 ```editor:open-file
-file: java-web-app/tap/workload.yaml
+file: java-web-app/config/workload.yaml
 ```  
   
 In the workload yaml that was generated from the accelerator we can see that it is pointing to a Git repo we still havent created.
 
 Lets now take a look at our simple java web app code:
 ```editor:open-file
-file: java-web-app/src/main/java/com/example/springboot/HelloController.java
+file: java-web-app/src/main/java/org/tanzu/demo/SensorsUiController.java
 ```  
   
 As we can see this is a very simple app that will print out **Greetings from Spring Boot + Tanzu!**
