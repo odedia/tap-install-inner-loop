@@ -7,7 +7,7 @@ The workflow here is that Cody downloads the accelerator template to his local m
 For this demo, we'll use the Tanzu command line interface instead of the Web UI to download the java-web-app application accelerator. The Tanzu CLI is your one-stop shop for interacting with the Tanzu Application Platform.
 
 ```execute
-tanzu accelerator generate spring-sensors-rabbit --server-url https://accelerator.{{ ENV_BASE_DOMAIN }} --options='{"gitUrl": "'"$GITREPO"'","gitBranch":"main","ociCodeRepo":"'"$CODE_OCI_TARGET"'","advSettings":true,"devMode":true,"kubeContext":"eduk8s","securityConfig":"both","artifactId":"spring-sensors-rabbit"}'
+tanzu accelerator generate spring-sensors --server-url https://accelerator.{{ ENV_BASE_DOMAIN }} --options='{"gitUrl": "'"$GITREPO"'","gitBranch":"main","ociCodeRepo":"'"$CODE_OCI_TARGET"'","advSettings":true,"devMode":true,"kubeContext":"eduk8s","securityConfig":"both","artifactId":"spring-sensors"}'
 ```
 
 Unzip the repo into your local file system:
@@ -23,14 +23,14 @@ Lets see the only kubernetes YAML that will be needed for this app which itself 
 file: java-web-app/config/workload.yaml
 ```  
   
-In the workload yaml that was generated from the accelerator we can see that it is pointing to a Git repo we still havent created.
+In the workload yaml that was generated from the accelerator we can see that it is pointing to a Git repo we still did not create.
 
-Lets now take a look at our simple java web app code:
-```editor:open-file
+Let's now take a look at our simple java web app code:
+```editor:select-matching-text
 file: java-web-app/src/main/java/org/tanzu/demo/SensorsUiController.java
-```  
-  
-As we can see this is a very simple app that will print out **Greetings from Spring Boot + Tanzu!**
+text: "model.addAttribute(\"sensors\", sensorRepository.findAll());"
+```
+As we can see, our application is fetching sensor data from a database and returns it via this API call.
 
 Tilt is an industry standard for development against Kubernetes environments and TAP has a very strong integration with Tilt. Tilt is configured per project via a simple config file called **Tiltfile** at the root of your project.
 
