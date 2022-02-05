@@ -7,7 +7,7 @@ The workflow here is that Cody downloads the accelerator template to his local m
 For this demo, we'll use the Tanzu command line interface instead of the Web UI to download the java-web-app application accelerator. The Tanzu CLI is your one-stop shop for interacting with the Tanzu Application Platform.
 
 ```execute
-tanzu accelerator generate spring-sensors --server-url https://accelerator.{{ ENV_BASE_DOMAIN }} --options='{"gitUrl": "'"$GITREPO"'","gitBranch":"main","repositoryPrefix":"'"$CODE_OCI_TARGET"'","advSettings":true,"devMode":true,"kubeContext":"eduk8s","securityConfig":"both","artifactId":"spring-sensors"}'
+tanzu accelerator generate spring-sensors --server-url https://accelerator.tap.tanzutime.com --options='{"gitUrl": "'"$GITREPO"'","gitBranch":"main","ociCodeRepo":"'"$CODE_OCI_TARGET"'","advSettings":true,"devMode":true,"kubeContext":"eduk8s","securityConfig":"both","artifactId":"java-web-app"}'
 ```
 
 Unzip the repo into your local file system:
