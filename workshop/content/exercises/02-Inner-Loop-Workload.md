@@ -26,9 +26,8 @@ file: java-web-app/config/workload.yaml
 In the workload yaml that was generated from the accelerator we can see that it is pointing to a Git repo we still did not create.
 
 Let's now take a look at our simple java web app code:
-```editor:select-matching-text
+```editor:open-file
 file: java-web-app/src/main/java/org/tanzu/demo/SensorsUiController.java
-text: "model.addAttribute(\"sensors\", sensorRepository.findAll());"
 ```
 As we can see, our application is fetching sensor data from a database and returns it via this API call.
 
@@ -60,16 +59,24 @@ kubectl get pods
   
 Now lets Look at the code we want to change:
 ```editor:select-matching-text
-file: java-web-app/src/main/java/com/example/springboot/HelloController.java
-text: "Greetings from Spring Boot + Tanzu!"
+file: spring-sensors/src/main/java/org/tanzu/demo/SensorsUiController.java
+text: "model.addAttribute(\"sensors\", sensorRepository.findAll());"
 ```
 
 We've selected the code that prints our message to the UI. Click below to update the message for our app.
 
 ```editor:replace-text-selection
-file: java-web-app/src/main/java/com/example/springboot/HelloController.java
-text: "Greetings %session_namespace% From Tanzu Application Platform"
-```  
+file: spring-sensors/src/main/java/org/tanzu/demo/SensorsUiController.java
+text: |
+    var formattedSensorData = sensorRepository.findAll()
+            .stream().map(s -> new SensorData(
+                            s.getId(),
+                            Math.round(s.getTemperature() * 100) / 100.0d,
+                            Math.round(s.getPressure() * 100) / 100.0d
+                    )
+            ).collect(java.util.stream.Collectors.toList());
+            model.addAttribute("sensors", formattedSensorData);
+```
 
 As we can see, logs ran for a few seconds at the bottom of our screen. Lets check out our app now:
 ```execute-2
