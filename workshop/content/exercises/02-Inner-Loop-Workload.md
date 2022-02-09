@@ -59,14 +59,14 @@ kubectl get pods
   
 Now lets Look at the code we want to change:
 ```editor:select-matching-text
-file: spring-sensors/src/main/java/org/tanzu/demo/SensorsUiController.java
+file: java-web-app/src/main/java/org/tanzu/demo/SensorsUiController.java
 text: "model.addAttribute(\"sensors\", sensorRepository.findAll());"
 ```
 
 We've selected the code that prints our message to the UI. Click below to update the message for our app.
 
 ```editor:replace-text-selection
-file: spring-sensors/src/main/java/org/tanzu/demo/SensorsUiController.java
+file: java-web-app/src/main/java/org/tanzu/demo/SensorsUiController.java
 text: |
     var formattedSensorData = sensorRepository.findAll()
             .stream().map(s -> new SensorData(
