@@ -1,4 +1,4 @@
-Now that Cody has finished iterating over his code it is time to push his code to git and have TAP deploy the application for him.
+Now that Cody has finished iterating over his code it is time to push his code to git and have TAP deploy the application for him to a test or production cluster.
 
 Commit the configured application to Git, where it can be picked up by Tanzu Application Platform's Supply Chain Choreographer.
 
