@@ -21,7 +21,7 @@ args:
 
 To explore our supply chain, let's take a look at the supply chain definition we are using for "web" applications:
 ```editor:open-file
-file: supplychain/supplychain.yaml
+file: supplychain/ootb_supply_chain_basic.yaml
 ```
 There are a few things to highlight in this file.
 
@@ -29,6 +29,19 @@ There are a few things to highlight in this file.
 2. The ```resources``` section has a sequential list of all the steps in the supply chain.
 
 To understand what each resource does, you can take a look at the numbered definition files for each step in the supply chain, starting with ```supply-chain-01-source.yaml```
+
+Now let's take a look at a different supply chain, which would take place if our application also has tests. Alana decided that workloads with tests will also run security scans, so the supply chain also integrates source code and image scanning:
+
+```editor:open-file
+file: supplychain/ootb_supply_chain_test_scan.yaml
+```
+
+Notice that ```spec/selector/app.tanzu.vmware.com/workload-type``` now have two parameters that have to exist in order for this supply chain to be picked up:
+
+```
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+``` 
 
 # Monitoring Supply Chain Execution
 

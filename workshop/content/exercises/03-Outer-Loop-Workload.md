@@ -17,7 +17,7 @@ git -C ~/java-web-app push -u origin main
 Now Cody executes the *workload create* command to publish his new application. 
 
 ```execute
-tanzu apps workload create java-web-app -f java-web-app/tap/workload.yaml -y
+tanzu apps workload create java-web-app -f java-web-app/config/workload.yaml -y
 ```
 
 We'll start streaming the logs that show what Tanzu Application Platform does next:

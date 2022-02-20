@@ -2,7 +2,7 @@ At this point, our onboarding developer simply needs to verify that her applicat
 
 ## Verify Packaging
 
-Once the supply chain completes building and packaging Java Web App, it is pushed to the Harbor Registry.
+Once the supply chain completes building and packaging Spring Sensors, it is pushed to the Harbor Registry.
 
 Use the following link to access the Harbor registry:
 
@@ -16,7 +16,7 @@ You will be redirected to the sign-in page.
 * Username: ```admin```
 * password ```{{ ENV_HARBOR_PASSWORD }}```
 
-Once you are logged in, click on **vrabbi** in the Projects list, and then click on the **vrabbi/java-web-app** repo. You will see artifacts for the java-web-app application. If you want to verify which image is yours, you can check the sha256 for your container image with this command:
+Once you are logged in, click on **apps** in the Projects list, and then click on **apps/java-web-app-{{ session_namespace }}** . You will see artifacts for the Spring Sesors application. If you want to verify which image is yours, you can check the sha256 for your container image with this command:
 
 ```execute
 kp image list
@@ -44,12 +44,14 @@ Cody can now use the Tanzu Application Platform GUI to get more information abou
 
 ```dashboard:open-url
 name: Live
-url: https://tap-gui.{{ ingress_domain }}
+url: https://portal.{{ ENV_BASE_DOMAIN }}
 ```
+
 Lets now run a load test in the background on our application using a simple load testing cli
 ```execute
-hey -z 120s -c 1000 https://java-web-app.{{ ingress_domain }}/
+hey -z 120s -c 1000 https://java-web-app-{{ session_namespace }}.apps.{{ ENV_BASE_DOMAIN }}
 ```
+
 TAP GUI provides a great deal of information about running software deployed through TAP, but Cody is particularly interested in the App Live View. It provides realtime visibility into his new application. Navigate to App Live View:
   
 ```dashboard:open-url
