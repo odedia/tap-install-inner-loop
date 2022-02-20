@@ -28,7 +28,11 @@ There are a few things to highlight in this file.
 1. The ```spec/selector/app.tanzu.vmware.com/workload-type``` entry defines that tag that will be used in the workload.yaml file of any application that utilizes this supply chain.
 2. The ```resources``` section has a sequential list of all the steps in the supply chain.
 
-To understand what each resource does, you can take a look at the numbered definition files for each step in the supply chain, starting with ```supply-chain-01-source.yaml```
+To understand what each resource does, you can take a look at the numbered definition files for each step in the supply chain, starting with ```supply-chain-01-source.yaml```:
+
+```editor:open-file
+file: supplychain/supply-chain-01-source.yaml
+```
 
 Now let's take a look at a different supply chain, which would take place if our application also has tests. Alana decided that workloads with tests will also run security scans, so the supply chain also integrates source code and image scanning:
 
@@ -40,6 +44,10 @@ Notice that ```spec/selector/app.tanzu.vmware.com/workload-type``` now have two 
 
 ```
     apps.tanzu.vmware.com/has-tests: "true"
+```
+
+And:
+```
     apps.tanzu.vmware.com/workload-type: web
 ``` 
 
